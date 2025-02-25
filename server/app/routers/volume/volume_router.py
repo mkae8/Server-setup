@@ -7,7 +7,7 @@ volumeRouter = APIRouter()
 
 @volumeRouter.get("/volumes")
 def fetch_volumes():
-    return get_all_volumes
+    return get_all_volumes()
 
 @volumeRouter.get("/volume/{volume_id}")
 def fetch_volume(volume_id:int):

@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 from database import engine
 from models.volumeModel import Volume
-from schemas.volume.volume_schemas import VolumeCreate, VolumeUpdate, VolumesResponse
+from schemas.volume.volume_schemas import VolumeCreate, VolumeUpdate
 from fastapi import HTTPException
 
 
@@ -10,7 +10,7 @@ from fastapi import HTTPException
 def get_all_volumes():
      with Session(engine) as session:
           try:
-               result = session.query(VolumesResponse).all()
+               result = session.query(Volume).all()
                print("resultresultresultresultresult")
                print(result)
                print("resultresultresultresultresult")
