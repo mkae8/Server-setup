@@ -25,6 +25,7 @@ Base.metadata.create_all(bind=engine)
 
 app.include_router(volumeRouter, prefix="/api")
 
+
 @app.post("/sign_up")
 def sign_up(user: SignUpModel, cognito: AWS_Cognito = Depends(get_aws_cognito)):
     return cognito.sign_up(user)

@@ -17,3 +17,11 @@ class VolumeUpdate(BaseModel):
     title_en: Optional[str] = None
     title_mn: Optional[str] = None
     title_tr: Optional[str] = None
+
+class VolumesResponse(BaseModel):
+    id: int
+    volume_year: str
+    volume_no: str
+    title_en: str
+    title_mn: str
+    title_tr: str

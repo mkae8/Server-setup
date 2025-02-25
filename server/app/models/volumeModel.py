@@ -1,5 +1,5 @@
 from database import Base
-from sqlalchemy import Column, String, Integer, text 
+from sqlalchemy import Column, String, Integer
 
 
 class Volume(Base):
@@ -10,3 +10,6 @@ class Volume(Base):
     title_en = Column(String,nullable=False)
     title_mn = Column(String,nullable=False)
     title_tr = Column(String,nullable=False)
+
+class Config:
+    from_attributes = True

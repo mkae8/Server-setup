@@ -1,6 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter
 from controllers.volume.volume_controller import (get_all_volumes, get_volume_by_id,create_volume,update_volume,delete_volume)
 from schemas.volume.volume_schemas import VolumeCreate, VolumeUpdate
+
 
 volumeRouter = APIRouter()
 
@@ -13,7 +14,7 @@ def fetch_volume(volume_id:int):
     return get_volume_by_id(volume_id)
 
 @volumeRouter.post("/volume")
-def add_volume(volume:VolumeCreate):
+def add_volume(volume: VolumeCreate):
     return create_volume(volume)
 
 @volumeRouter.put("/volumes/{volume_id}")
