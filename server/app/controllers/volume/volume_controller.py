@@ -11,9 +11,7 @@ def get_all_volumes():
      with Session(engine) as session:
           try:
                result = session.query(Volume).all()
-               print("resultresultresultresultresult")
-               print(result)
-               print("resultresultresultresultresult")
+               print("Query Result:", result)
                return result
                
           except SQLAlchemyError as exc:
