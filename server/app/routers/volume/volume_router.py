@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from controllers.volume.volume_controller import (get_all_volumes, get_volume_by_id,create_volume,update_volume,delete_volume)
-from schemas.volume.volume_schemas import VolumeCreate, VolumeUpdate
+from schemas.volume.volume_schemas import VolumeCreate, VolumeUpdate, ResponseVolume
 
 
 volumeRouter = APIRouter()
@@ -13,7 +13,7 @@ def fetch_volumes():
 def fetch_volume(volume_id:int):
     return get_volume_by_id(volume_id)
 
-@volumeRouter.post("/volume")
+@volumeRouter.post("/volume", response_model=ResponseVolume)
 def add_volume(volume: VolumeCreate):
     return create_volume(volume)
 

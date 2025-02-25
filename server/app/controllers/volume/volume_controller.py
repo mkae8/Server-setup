@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 from database import engine
 from models.volumeModel import Volume
-from schemas.volume.volume_schemas import VolumeCreate, VolumeUpdate
+from schemas.volume.volume_schemas import VolumeCreate, VolumeUpdate, ResponseVolume
 from fastapi import HTTPException
 
 
@@ -36,15 +36,25 @@ def get_volume_by_id(volume_id: int):
 def create_volume(volume: VolumeCreate):
     with Session(engine) as session:
         try:
-            res = Volume(**volume.model_dump())  
+
+            res = Volume(
+                volume_year=volume.volume_year,
+                volume_no=volume.volume_no,
+                title_en=volume.title_en,
+                title_mn=volume.title_mn,
+                title_tr=volume.title_tr
+            )
             session.add(res)
             session.commit()
             session.refresh(res)
-            return res
+            return (res)
+        
         except SQLAlchemyError as exc:
             session.rollback()
-            print(exc)
-            return {"error_message": "Insert execution error"}
+            raise HTTPException(
+                status_code=500,
+                detail=f"Database error occurred: {str(exc)}"
+            )
 
         
 def update_volume(volume_id: int, volume: VolumeUpdate):
