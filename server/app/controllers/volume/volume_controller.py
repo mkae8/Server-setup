@@ -47,8 +47,8 @@ def create_volume(volume: VolumeCreate):
             session.add(res)
             session.commit()
             session.refresh(res)
-            return (res)
-        
+            return res
+                
         except SQLAlchemyError as exc:
             session.rollback()
             raise HTTPException(
