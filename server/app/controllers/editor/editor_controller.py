@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 from database import engine
 from schemas.editor.editor_schema import EditorCreate, EditorUpdate
-from models.model import Editor 
+from models.model import Editor
 from fastapi import HTTPException
 
 def get_all_editors():
@@ -47,7 +47,6 @@ def create_editor(editor: EditorCreate):
                 middlename_en=editor.middlename_en,
                 middlename_mn=editor.middlename_mn,
                 middlename_tr=editor.middlename_tr,
-
 
                 lastname_en=editor.lastname_en,
                 lastname_mn=editor.lastname_mn,
