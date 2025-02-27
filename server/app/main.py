@@ -5,6 +5,7 @@ from aws import AWS_Cognito, get_aws_cognito, SignUpModel
 from fastapi.middleware.cors import CORSMiddleware
 from routers.volume_router import volumeRouter
 from routers.issue_router import issueRouter
+from routers.editor_router import editorRouter
 
 load_dotenv()
 app = FastAPI()
@@ -30,4 +31,5 @@ Base.metadata.create_all(bind=engine)
 
 app.include_router(volumeRouter, prefix="/api")
 app.include_router(issueRouter, prefix="/api")
+app.include_router(editorRouter, prefix="/api")
 

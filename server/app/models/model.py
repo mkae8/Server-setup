@@ -41,13 +41,13 @@ class Editor(Base):
     firstname_mn = Column(String, nullable=False)
     firstname_tr = Column(String, nullable=False)
 
+    middlename_en = Column(String, nullable=True)
+    middlename_mn = Column(String, nullable=True)
+    middlename_tr = Column(String, nullable=True)
+
     lastname_en = Column(String, nullable=False)
     lastname_mn = Column(String, nullable=False)
     lastname_tr = Column(String, nullable=False)
-
-    middlename_en = Column(String, nullable=False)
-    middlename_mn = Column(String, nullable=False)
-    middlename_tr = Column(String, nullable=False)
 
     role_en = Column(String, nullable=False)
     role_mn = Column(String, nullable=False)
@@ -109,5 +109,6 @@ class Author(Base):
     suffix_en = Column(String, nullable=False)
     suffix_mn = Column(String, nullable=False)
     suffix_tr = Column(String, nullable=False)
+    
     created_at = Column(TIMESTAMP, server_default=func.now(), nullable=False)
     article = relationship("Article", back_populates="authors")
