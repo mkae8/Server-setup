@@ -13,7 +13,7 @@ def fetch_volumes():
 def fetch_volume(volume_id:int):
     return get_volume_by_id(volume_id)
 
-@volumeRouter.post("/volume", response_model=ResponseVolume)
+@volumeRouter.post("/volume", response_model=ResponseVolume, status_code=201)
 def add_volume(volume: VolumeCreate):
     return create_volume(volume)
 

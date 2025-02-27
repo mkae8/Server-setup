@@ -13,7 +13,7 @@ def fetch_issues():
 def fetch_issue(issue_id:int):
     return get_issue_by_id(issue_id)
 
-@issueRouter.post("/issue", response_model=ResponseIssue)
+@issueRouter.post("/issue", response_model=ResponseIssue, status_code=201)
 def add_issue(volume: IssueCreate):
     return create_issue(volume)
 

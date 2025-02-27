@@ -95,5 +95,5 @@ def update_editor(editor_id: int, editor: EditorUpdate):
             session.rollback()
             raise HTTPException(
                 status_code=500, 
-                detail="Update execution error"
+                detail=f"Update execution error:{exc}"
             )

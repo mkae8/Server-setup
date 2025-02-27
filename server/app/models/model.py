@@ -102,9 +102,9 @@ class Author(Base):
     lastname_mn = Column(String, nullable=False)
     lastname_tr = Column(String, nullable=False)
 
-    middlename_en = Column(String, nullable=False)
-    middlename_mn = Column(String, nullable=False)
-    middlename_tr = Column(String, nullable=False)
+    middlename_en = Column(String, nullable=True)
+    middlename_mn = Column(String, nullable=True)
+    middlename_tr = Column(String, nullable=True)
 
     suffix_en = Column(String, nullable=False)
     suffix_mn = Column(String, nullable=False)
