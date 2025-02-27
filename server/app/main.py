@@ -3,7 +3,8 @@ from database import engine, Base
 from dotenv import load_dotenv
 from aws import AWS_Cognito, get_aws_cognito, SignUpModel
 from fastapi.middleware.cors import CORSMiddleware
-from routers.volume.volume_router import volumeRouter
+from routers.volume_router import volumeRouter
+from routers.issue_router import issueRouter
 
 load_dotenv()
 app = FastAPI()
@@ -24,6 +25,7 @@ app.add_middleware(
 Base.metadata.create_all(bind=engine)
 
 app.include_router(volumeRouter, prefix="/api")
+app.include_router(issueRouter, prefix="/api")
 
 
 @app.post("/sign_up")

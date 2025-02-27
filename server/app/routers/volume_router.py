@@ -5,7 +5,7 @@ from schemas.volume.volume_schemas import VolumeCreate, VolumeUpdate, ResponseVo
 
 volumeRouter = APIRouter()
 
-@volumeRouter.get("/volumes", )
+@volumeRouter.get("/volumes")
 def fetch_volumes():
     return get_all_volumes()
 

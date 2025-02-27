@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 from database import engine
-from models.volumeModel import Volume
 from schemas.volume.volume_schemas import VolumeCreate, VolumeUpdate, ResponseVolume
+from models.model import Volume
 from fastapi import HTTPException
 
 
@@ -36,7 +36,6 @@ def get_volume_by_id(volume_id: int):
 def create_volume(volume: VolumeCreate):
     with Session(engine) as session:
         try:
-
             result = Volume(
                 volume_year=volume.volume_year,
                 volume_no=volume.volume_no,

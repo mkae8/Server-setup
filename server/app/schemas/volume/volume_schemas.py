@@ -3,13 +3,13 @@ from typing import Optional
 
 
 
-class VolumeBase(BaseModel):
-    volume_year: int = Field(..., example=2024)
-    volume_no: int = Field(..., example=1)
-    title_en: str = Field(..., example="Expamle")
-    title_mn: str = Field(..., example="Жишээ")
-    title_tr: str = Field(..., example="Örnek")
 
+class VolumeBase(BaseModel):
+    volume_year: int
+    volume_no: int
+    title_en: str
+    title_mn: str
+    title_tr: str
 
 class VolumeCreate(VolumeBase):
     pass
@@ -22,8 +22,8 @@ class VolumeUpdate(BaseModel):
     title_tr: Optional[str] = None
 
 class ResponseVolume(BaseModel):
-    volume_year: int
-    volume_no: int
-    title_en: str
-    title_mn: str
-    title_tr: str
+    volume_year: int = Field(..., example=2024)
+    volume_no: int = Field(..., example=1)
+    title_en: str = Field(..., example="Expamle")
+    title_mn: str = Field(..., example="Жишээ")
+    title_tr: str = Field(..., example="Örnek")
