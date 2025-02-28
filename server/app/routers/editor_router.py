@@ -16,6 +16,6 @@ def fetch_editor_by_id(editor_id:int):
 def add_editor(editor:EditorCreate):
     return create_editor(editor)
 
-@editorRouter.put("/editor/{editor_id}", response_model=EditorResponse)
+@editorRouter.put("/editor/{editor_id}", response_model=EditorUpdate)
 def modify_editor(editor_id : int, editor:EditorUpdate):
     return update_editor(editor_id, editor)

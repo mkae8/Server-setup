@@ -2,8 +2,7 @@ from pydantic import BaseModel, Field
 from typing import Optional
 
 class EditorBase(BaseModel):
-    issue_id: int = Field(..., example=1)
-
+    issue_id: int 
     firstname_en: str
     firstname_mn: str
     firstname_tr: str

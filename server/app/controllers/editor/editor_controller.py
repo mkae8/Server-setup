@@ -76,10 +76,10 @@ def update_editor(editor_id: int, editor: EditorUpdate):
     with Session(engine) as session:
         try:
             res = session.query(Editor).filter(Editor.id == editor_id).first()
-            if not res:
+            if res is None:
                 raise HTTPException(
-                    status_code=404, 
-                    detail="Editor not found"
+                status_code=404, 
+                detail=f"Editor with ID {editor_id} not found"
                 )
 
             update_data = editor.dict(exclude_unset=True)

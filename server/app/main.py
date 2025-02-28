@@ -7,6 +7,7 @@ from routers.volume_router import volumeRouter
 from routers.issue_router import issueRouter
 from routers.editor_router import editorRouter
 from routers.category_router import categoryRouter
+from routers.article_router import articleRouter
 
 load_dotenv()
 app = FastAPI()
@@ -34,5 +35,6 @@ app.include_router(volumeRouter, prefix="/api")
 app.include_router(issueRouter, prefix="/api")
 app.include_router(editorRouter, prefix="/api")
 app.include_router(categoryRouter, prefix="/api")
+app.include_router(articleRouter, prefix="/api")
 
 
