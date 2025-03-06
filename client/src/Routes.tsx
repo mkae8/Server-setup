@@ -18,6 +18,16 @@ const Routes: RouteObject[] = [
                 Component
               }
             }
+          },
+          {
+            path: '/volume',
+
+            lazy: async () => {
+              const { default: Component } = await import('@/pages/Volume')
+              return {
+                Component
+              }
+            }
           }
         ]
       }
