@@ -8,6 +8,7 @@ from routers.issue_router import issueRouter
 from routers.editor_router import editorRouter
 from routers.category_router import categoryRouter
 from routers.article_router import articleRouter
+from routers.author_router import authorRouter
 
 load_dotenv()
 app = FastAPI()
@@ -36,5 +37,6 @@ app.include_router(issueRouter, prefix="/api")
 app.include_router(editorRouter, prefix="/api")
 app.include_router(categoryRouter, prefix="/api")
 app.include_router(articleRouter, prefix="/api")
+app.include_router(authorRouter, prefix="/api")
 
 

@@ -66,7 +66,7 @@ def creatre_author(author:AuthorCreate):
                 status_code=500,
                 detail=f"Database error: {exc}"
             )
-def update_author(author_id : int, article:AuthorUpdate):
+def update_author(author_id : int, author:AuthorUpdate):
     with Session(engine) as session:
         try:
             result = session.query(Author).filter(Author.id == author_id).first()
@@ -75,7 +75,7 @@ def update_author(author_id : int, article:AuthorUpdate):
                     status_code=404, 
                     detail= f"Author with ID {author_id} not found"
                 )
-            update_data = article.dict(exclude_unset=True)
+            update_data = author.dict(exclude_unset=True)
             for key , value in update_data.items():
                 setattr(result, key , value)
             session.commit()
