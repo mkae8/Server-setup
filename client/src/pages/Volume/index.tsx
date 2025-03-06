@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { Toaster } from 'sonner'
 
 const VolumeCreatePage = () => {
   const { mutate, isPending } = useCreateVolume()
@@ -22,11 +23,11 @@ const VolumeCreatePage = () => {
   const form = useForm<TParams>({
     resolver: zodResolver(CreateVolumeSchema),
     defaultValues: {
-      title_tr: '',
-      title_mn: '',
-      title_en: '',
       volume_year: '',
-      volume_no: ''
+      volume_no: '',
+      title_en: '',
+      title_mn: '',
+      title_tr: ''
     }
   })
 
@@ -38,15 +39,17 @@ const VolumeCreatePage = () => {
       }
     })
   }
+
   return (
-    <div>
+    <div className="mt-20">
+      <Toaster position="top-right" />
       <Form {...form}>
         <form
           className="bg-card text-card-foreground flex h-max max-w-xs grow flex-col gap-4 rounded-lg border p-2 shadow-sm"
           onSubmit={form.handleSubmit(onSubmit)}
         >
           <div className="space-y-1">
-            <div>Create User</div>
+            <div>Create Volume</div>
             <div>Please input the field below</div>
           </div>
           <div className="space-y-4 rounded-lg">
@@ -77,7 +80,7 @@ const VolumeCreatePage = () => {
                   <FormControl>
                     <Input
                       className="bg-card"
-                      placeholder="Volume year"
+                      placeholder="Volume no"
                       inputMode="numeric"
                       {...field}
                     />
@@ -88,14 +91,14 @@ const VolumeCreatePage = () => {
             />
             <FormField
               control={form.control}
-              name="title_tr"
+              name="title_en"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>title tr</FormLabel>
+                  <FormLabel>English Title</FormLabel>
                   <FormControl>
                     <Input
                       className="bg-card"
-                      placeholder="Volume year"
+                      placeholder="English"
                       inputMode="text"
                       {...field}
                     />
@@ -109,11 +112,11 @@ const VolumeCreatePage = () => {
               name="title_mn"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>title_mn</FormLabel>
+                  <FormLabel>Mongolian Title</FormLabel>
                   <FormControl>
                     <Input
                       className="bg-card"
-                      placeholder="Volume year"
+                      placeholder="Mongolian"
                       inputMode="text"
                       {...field}
                     />
@@ -124,14 +127,14 @@ const VolumeCreatePage = () => {
             />
             <FormField
               control={form.control}
-              name="title_en"
+              name="title_tr"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>title_en</FormLabel>
+                  <FormLabel>Turkish title</FormLabel>
                   <FormControl>
                     <Input
                       className="bg-card"
-                      placeholder="Volume year"
+                      placeholder="Turkish"
                       inputMode="text"
                       {...field}
                     />
