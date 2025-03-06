@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends
 from database import engine, Base
 from dotenv import load_dotenv
-from aws import AWS_Cognito, get_aws_cognito, SignUpModel
+from utils.aws import AWS_Cognito, get_aws_cognito, SignUpModel
 from fastapi.middleware.cors import CORSMiddleware
 from routers.volume_router import volumeRouter
 from routers.issue_router import issueRouter
