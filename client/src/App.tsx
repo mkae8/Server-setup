@@ -1,8 +1,9 @@
 import { Outlet } from 'react-router-dom'
-// import { useVolumeList } from './shared/queries/useVolumeList'
+// import { useIssueList } from './shared/queries/useIssueList'
 
 export default function App() {
-  // const { isSuccess, data } = useVolumeList()
+  // const { isSuccess, data } = useIssueList()
+  // console.log(isSuccess, data)
 
   return <Outlet />
 }
